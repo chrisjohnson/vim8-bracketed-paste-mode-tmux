@@ -1,10 +1,11 @@
 let s:screen  = &term =~ 'screen'
+let s:tmux = &term =~ 'tmux'
 let s:xterm   = &term =~ 'xterm'
 
 " make use of Xterm "bracketed paste mode"
 " http://www.xfree86.org/current/ctlseqs.html#Bracketed%20Paste%20Mode
 " http://stackoverflow.com/questions/5585129
-if s:screen || s:xterm
+if s:screen || s:xterm || s:tmux
   function! s:BeginXTermPaste(ret)
     set paste
     return a:ret
